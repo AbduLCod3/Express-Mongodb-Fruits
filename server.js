@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const { connect, connection } = require("mongoose");
 const methodOverride = require("method-override");
-const fruitsController = require("./controllers/fruitsController");
+const pokemonsController = require("./controllers/pokemonsController");
 
 // Database connection
 connect(process.env.MONGO_URI, {
@@ -30,9 +30,9 @@ app.use(express.urlencoded({ extended: false })); // This enables the req.body
 //after app has been defined
 //use methodOverride.  We'll be adding a query parameter to our delete form named _method
 app.use(methodOverride("_method"));
-// this tells the server to look for 
+// this tells the server to look for
 // static assets in the public folder
-// like css, images, 
+// like css, images,
 app.use(express.static("public"));
 
 // Custom Middleware
@@ -42,15 +42,14 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/fruits", fruitsController);
+app.use("/pokemons", pokemonsController);
 
 //Catch all route. If the uses try to reach a route that doesn't match the ones above it will catch them and redirect to the Index page
 app.get("/*", (req, res) => {
   res.send(`
     <div>
       404 this page doesn't exist! <br />
-      <a href="/fruits">Fruit</a> <br />
-      <a href="/vegetables">Vegetables</a>
+      <a href="/pokemons">Pokemons Page</a> <br />
     </div
   `);
 });

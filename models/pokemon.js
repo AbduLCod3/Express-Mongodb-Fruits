@@ -2,13 +2,12 @@
 const { Schema, model } = require("mongoose");
 
 // creating a new Schema, same thing as mongoose.Schema
-const fruitSchema = new Schema({
+const pokemonSchema = new Schema({
   name: { type: String, required: true },
-  color: { type: String, required: true },
-  readyToEat: Boolean,
+  img: { type: String, required: true },
 });
 
 // creating a new model, same thing as mongoose.model
-const Fruit = model("Fruit", fruitSchema);
+const Pokemon = model("Pokemon", pokemonSchema);
 
-module.exports = Fruit;
+module.exports = Pokemon;
