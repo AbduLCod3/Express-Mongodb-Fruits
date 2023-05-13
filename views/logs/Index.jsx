@@ -3,7 +3,7 @@ const DefaultLayout = require("../layout/Default");
 
 class Index extends React.Component {
   render() {
-    const { pokemons } = this.props;
+    const { logs } = this.props;
     return (
       <DefaultLayout
         title="Logs Index Page"
@@ -11,11 +11,12 @@ class Index extends React.Component {
         text="Create a Log"
       >
         <ul>
-          {pokemons.map((pokemon, i) => {
+          {logs.map((log, i) => {
             return (
               <li key={i}>
-                The <a href={`/logs/${pokemon._id}`}>{pokemon.name}</a>{" "}
-                {pokemon.img} <br></br>
+                <a href={`/logs/${log._id}`}>{log.title}</a> {log.entry}{" "}
+                <br></br>
+                {log.shipIsBroken} <br></br>
                 <br />
               </li>
             );

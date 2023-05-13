@@ -3,10 +3,12 @@ const DefaultLayout = require("../layout/Default");
 
 class Show extends React.Component {
   render() {
-    const pokemon = this.props.pokemon;
+    const log = this.props.log;
     return (
-      <DefaultLayout title="Show Page" link="/pokemons" text="Home">
-        The {pokemon.name} looks like {pokemon.img} <br />
+      <DefaultLayout title="Show Page" link="/logs" text="Home">
+        {log.title} <br />
+        {log.entry} <br />
+        {log.shipIsBroken} <br />
       </DefaultLayout>
     );
   }

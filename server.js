@@ -4,7 +4,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const { connect, connection } = require("mongoose");
 const methodOverride = require("method-override");
-const pokemonsController = require("./controllers/pokemonsController");
+const logsController = require("./controllers/logsController");
 
 // Database connection
 connect(process.env.MONGO_URI, {
@@ -42,14 +42,14 @@ app.use((req, res, next) => {
 });
 
 // Routes
-app.use("/pokemons", pokemonsController);
+app.use("/logs", logsController);
 
 //Catch all route. If the uses try to reach a route that doesn't match the ones above it will catch them and redirect to the Index page
 app.get("/*", (req, res) => {
   res.send(`
     <div>
       404 this page doesn't exist! <br />
-      <a href="/pokemons">Pokemons Page</a> <br />
+      <a href="/logs">Captain's Log Page</a> <br />
     </div
   `);
 });
